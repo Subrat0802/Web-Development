@@ -8,5 +8,24 @@
 </head>
 <body>
     <h1>Hello World</h1>
+    <p id="count"></p>
 </body>
 </html>
+<script>
+    function counter(){
+
+        let counter_div=document.getElementById("count");
+
+        let i=0;
+
+        let cdiv=setInterval(function(){
+            if(i==10){
+                clearInterval(cdiv);
+            }
+            counter_div.innerText=i;
+            i++;
+        },1000)
+        
+    }
+    counter();
+</script>
