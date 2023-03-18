@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgb(37, 37, 69);
+            color: white;
+        }
+
+        #slider {
+            width: 90%;
+            margin: auto;
+        }
+
+        #slider>img {
+            width: 100%;
+            height: 25rem;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: auto;
+            gap: 20px;
+            width: 80%;
+        }
+
+        #container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1>Hotstar</h1>
+        <div>
+            <input type="search" placeholder="search movies">
+            <button>Search</button>
+        </div>
+    </nav>
+    <div id="slider"></div>
+    <button onclick="hightolow()">H-L</button>
+    <button onclick="lowtohigh()">L-H</button>
+    <div id="container"><img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47eur1g92b8hbrzntq8ewj3cnvg4x7ez8zn7t2zndb&rid=giphy.gif&ct=g" alt=""></div>
+</body>
+
+</html>
+<script src="./promises1.js"></script>
+
