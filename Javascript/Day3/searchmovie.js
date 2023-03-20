@@ -5,31 +5,39 @@
 async function searchMovies(){
     try{
         let query=document.getElementById("query").value;
+        console.log(query);
+
+        
         let res= await fetch(`http://www.omdbapi.com/?apikey=c2c8e2a4&s=${query}`)
         let data= await res.json();
+        // console.log(data);
+
         let actual_data=data.Search;
 
-        let container = document.getElementById("container");
-        let img=document.createElement("img");
-        img.src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47eur1g92b8hbrzntq8ewj3cnvg4x7ez8zn7t2zndb&rid=giphy.gif&ct=g";
-        container.append(img);
+        // let container = document.getElementById("container");
+        // let img=document.createElement("img");
+        // img.src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47eur1g92b8hbrzntq8ewj3cnvg4x7ez8zn7t2zndb&rid=giphy.gif&ct=g";
+        // container.append(img);
         
-        setTimeout(function(){
+        // setTimeout(function(){
             appendMovies(actual_data);
-        },2000)
+        // },2000)
         
         
 
-        console.log(actual_data);
+        // console.log(actual_data);
     }
     catch{
         console.log("error");
     }
 }
 
-searchMovies()
+// searchMovies()
 
 function appendMovies(data) {
+    if(data===undefined){
+        return false;
+    }
     let container = document.getElementById("container");
     container.innerHTML = null;
 
@@ -46,4 +54,16 @@ function appendMovies(data) {
         div.append(img, name, rating);
         container.append(div);
     })
+}
+
+
+
+let id;
+function debounce(func, delay){
+    if(id){
+        clearTimeout(id);
+    }
+    id = setTimeout(function(){
+        func();
+    },delay)
 }

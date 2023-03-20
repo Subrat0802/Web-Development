@@ -17,13 +17,14 @@
         #container img {
             width: 100%;
             border-radius: 10px;
+            height: 400px;
         }
     </style>
 </head>
 <body>
     <h2>Hotstar</h2>
-    <input type="text" id="query" placeholder="Search Movies">
-    <button onclick="searchMovies()">Search</button>
+    <input oninput="debounce(searchMovies, 2000)" type="text" id="query" placeholder="Search Movies">
+    <!-- <button onclick="searchMovies()">Search</button> -->
     <div id="container"></div>
 </body>
 </html>
